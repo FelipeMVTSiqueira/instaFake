@@ -13,4 +13,9 @@
             $controller = new PostController();
             $controller->acao($rotas);
         break;
+        case "cadastrar-post":
+            include "controllers/PostController.php";
+            $controller = new PostController();
+            $controller->acao($rotas);
+
     }
