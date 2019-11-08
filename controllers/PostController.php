@@ -29,5 +29,11 @@
             $pastaTemporaria = $_FILES["enviado"]["tmp_name"];
             $pastaUploads = "views/img/$nomeArquivo";
             move_uploaded_file($pastaTemporaria,$pastaUploads);
+
+            $post = new Post();
+            $resultado = $post->postar($pastaUploads, $descri);
+            if($resultado){
+                header('Location:/instaFake/posts')
+            }
         }
     }
