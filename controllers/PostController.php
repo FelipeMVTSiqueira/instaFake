@@ -10,6 +10,7 @@
                     $this->viewFormularioPost();
                 break;
                 case "cadastrar-post":
+                    $this->CadastroPost();
                 break;
             }
         }
@@ -25,6 +26,8 @@
 
         private function cadastroPost(){
             $descri = $_POST['descri']; //pegando do formulario newPost
+            // var_dump($_FILES);
+            // exit;
             $nomeArquivo = $_FILES['img']['name'];
             $pastaTemporaria = $_FILES["enviado"]["tmp_name"];
             $pastaUploads = "views/img/$nomeArquivo";
@@ -33,7 +36,7 @@
             $post = new Post();
             $resultado = $post->postar($pastaUploads, $descri);
             if($resultado){
-                header('Location:/instaFake/posts')
+                header('Location:/instaFake/posts');
             }
         }
     }

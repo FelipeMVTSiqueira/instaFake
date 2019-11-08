@@ -1,9 +1,10 @@
 <?php
+    include_once "Conexao.php";
     class Post extends Conexao{
         public function postar($img, $descri){
             $db = parent::conectar();
-            $query = $db->prepare("INSERT INTO instaDados(descri, img) values(?,?)");
-            return $query->execute([$img, $descr]);
+            $query = $db->prepare("INSERT INTO instaDados(img, descri) values(?,?)");
+            return $query->execute([$img, $descri]);
             //no model ele soh fica responsavel de cadastrar no banco de dados essa eh a unica coisa que //ele sabe fazer
             //nao manda pra rota, nao sabe se vai fazer uploadd de arquivo nem nada. soh mexe com banco
             //model pega o link da imagem, pega a descrição e guarda no banco de dados.
